@@ -1,0 +1,15 @@
+.env
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.vite/
+*.egg-info/
+.venv/
+venv/
+.DS_Store
+*.log
+postgres-data/
+redis-data/
+backend/app/ml/models/*.pkl
+backend/app/ml/models/*.json

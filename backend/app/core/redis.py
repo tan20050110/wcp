@@ -1,0 +1,11 @@
+import redis.asyncio as aioredis
+from .config import settings
+
+redis_client = None
+
+async def init_redis():
+    global redis_client
+    redis_client = await aioredis.from_url(settings.REDIS_URL, decode_responses=True)
+
+async def get_redis():
+    return redis_client
