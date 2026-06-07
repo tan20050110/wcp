@@ -1,0 +1,20 @@
+[
+  {"home_code": "ARG", "away_code": "KSA", "match_date": "2026-06-11T20:00:00Z", "stage": "group", "group": "A", "venue": "Estadio Azteca, Mexico City"},
+  {"home_code": "MEX", "away_code": "POL", "match_date": "2026-06-12T17:00:00Z", "stage": "group", "group": "A", "venue": "Estadio BBVA, Monterrey"},
+  {"home_code": "ARG", "away_code": "MEX", "match_date": "2026-06-16T20:00:00Z", "stage": "group", "group": "A", "venue": "Estadio Akron, Guadalajara"},
+  {"home_code": "POL", "away_code": "KSA", "match_date": "2026-06-17T17:00:00Z", "stage": "group", "group": "A", "venue": "Estadio Azteca, Mexico City"},
+  {"home_code": "POL", "away_code": "ARG", "match_date": "2026-06-21T17:00:00Z", "stage": "group", "group": "A", "venue": "Estadio BBVA, Monterrey"},
+  {"home_code": "KSA", "away_code": "MEX", "match_date": "2026-06-21T17:00:00Z", "stage": "group", "group": "A", "venue": "Estadio Akron, Guadalajara"},
+  {"home_code": "FRA", "away_code": "AUS", "match_date": "2026-06-12T20:00:00Z", "stage": "group", "group": "B", "venue": "SoFi Stadium, Los Angeles"},
+  {"home_code": "DEN", "away_code": "TUN", "match_date": "2026-06-13T17:00:00Z", "stage": "group", "group": "B", "venue": "Levi's Stadium, San Francisco"},
+  {"home_code": "FRA", "away_code": "DEN", "match_date": "2026-06-17T20:00:00Z", "stage": "group", "group": "B", "venue": "SoFi Stadium, Los Angeles"},
+  {"home_code": "TUN", "away_code": "AUS", "match_date": "2026-06-18T17:00:00Z", "stage": "group", "group": "B", "venue": "Levi's Stadium, San Francisco"},
+  {"home_code": "AUS", "away_code": "DEN", "match_date": "2026-06-22T17:00:00Z", "stage": "group", "group": "B", "venue": "SoFi Stadium, Los Angeles"},
+  {"home_code": "TUN", "away_code": "FRA", "match_date": "2026-06-22T17:00:00Z", "stage": "group", "group": "B", "venue": "Levi's Stadium, San Francisco"},
+  {"home_code": "ENG", "away_code": "IRN", "match_date": "2026-06-13T20:00:00Z", "stage": "group", "group": "C", "venue": "MetLife Stadium, New Jersey"},
+  {"home_code": "USA", "away_code": "SCO", "match_date": "2026-06-14T17:00:00Z", "stage": "group", "group": "C", "venue": "AT&T Stadium, Dallas"},
+  {"home_code": "ENG", "away_code": "USA", "match_date": "2026-06-18T20:00:00Z", "stage": "group", "group": "C", "venue": "MetLife Stadium, New Jersey"},
+  {"home_code": "SCO", "away_code": "IRN", "match_date": "2026-06-19T17:00:00Z", "stage": "group", "group": "C", "venue": "AT&T Stadium, Dallas"},
+  {"home_code": "IRN", "away_code": "USA", "match_date": "2026-06-23T20:00:00Z", "stage": "group", "group": "C", "venue": "MetLife Stadium, New Jersey"},
+  {"home_code": "SCO", "away_code": "ENG", "match_date": "2026-06-23T20:00:00Z", "stage": "group", "group": "C", "venue": "AT&T Stadium, Dallas"}
+]
