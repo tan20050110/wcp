@@ -1,21 +1,25 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { Trophy, Calendar, Users, BarChart3, Radio, Lightbulb } from "lucide-react";
+import { Trophy, Calendar, Users, BarChart3, Radio, Lightbulb, Brain, Languages } from "lucide-react";
 import { cn } from "../lib/utils";
-
-const navItems = [
-  { to: "/", label: "Dashboard", icon: Trophy },
-  { to: "/schedule", label: "Schedule", icon: Calendar },
-  { to: "/teams", label: "Teams", icon: Users },
-  { to: "/predictions", label: "Predictions", icon: BarChart3 },
-  { to: "/live", label: "Live", icon: Radio },
-  { to: "/insights", label: "Insights", icon: Lightbulb },
-];
+import { useT } from "../lib/i18n";
 
 export default function Layout() {
+  const { t, lang, toggleLang } = useT();
+
+  const navItems = [
+    { to: "/", label: t("dashboard"), icon: Trophy },
+    { to: "/schedule", label: t("schedule"), icon: Calendar },
+    { to: "/teams", label: t("teams"), icon: Users },
+    { to: "/predictions", label: t("predictions"), icon: BarChart3 },
+    { to: "/live", label: t("live"), icon: Radio },
+    { to: "/insights", label: t("insights"), icon: Lightbulb },
+    { to: "/ai-lab", label: t("aiLab"), icon: Brain },
+  ];
+
   return (
-    <div className="min-h-screen bg-[#0a0f1a] text-white flex">
-      <aside className="w-16 lg:w-56 border-r border-white/10 flex flex-col py-4 px-2 lg:px-4 gap-1 shrink-0">
-        <div className="text-[#d4a843] font-bold text-lg mb-6 hidden lg:block">WC 2026</div>
+    <div className="h-screen bg-[#0a0f1a] text-white flex overflow-hidden">
+      <aside className="w-16 lg:w-56 border-r border-white/10 flex flex-col py-4 px-2 lg:px-4 gap-1 shrink-0 h-screen overflow-y-auto sticky top-0">
+        <div className="text-[#d4a843] font-bold text-lg mb-6 hidden lg:block">{t("wc2026")}</div>
         {navItems.map(({ to, label, icon: Icon }) => (
           <NavLink
             key={to}
@@ -32,8 +36,17 @@ export default function Layout() {
             <span className="hidden lg:inline">{label}</span>
           </NavLink>
         ))}
+        <div className="mt-auto pt-4 border-t border-white/10">
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors w-full"
+          >
+            <Languages size={20} />
+            <span className="hidden lg:inline">{lang === "en" ? "中文" : "EN"}</span>
+          </button>
+        </div>
       </aside>
-      <main className="flex-1 p-4 lg:p-6 overflow-auto">
+      <main className="flex-1 p-4 lg:p-6 overflow-y-auto h-screen">
         <Outlet />
       </main>
     </div>

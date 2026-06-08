@@ -12,6 +12,7 @@ class Team(Base, UUIDMixin, TimestampMixin):
     fifa_rank = Column(Integer, nullable=True)
     elo_rating = Column(Float, nullable=True)
     flag_url = Column(String(500), nullable=True)
+    coach_name = Column(String(100), nullable=True)
     squad_json = Column(JSONB, default=list)
     stats_json = Column(JSONB, default=dict)
     availability_json = Column(JSONB, default=dict)

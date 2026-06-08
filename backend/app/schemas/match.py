@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from uuid import UUID
-from typing import Optional
+from typing import Optional, Any
 from datetime import datetime
 
 class MatchBase(BaseModel):
@@ -19,9 +19,9 @@ class MatchResponse(MatchBase):
     status: str
     home_score: Optional[int] = None
     away_score: Optional[int] = None
-    venue_meta_json: dict = {}
-    home_team: Optional[dict] = None
-    away_team: Optional[dict] = None
+    venue_meta_json: Any = {}
+    home_team: Any = None
+    away_team: Any = None
     created_at: datetime
     updated_at: datetime
 

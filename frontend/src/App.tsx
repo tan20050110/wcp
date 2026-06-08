@@ -6,6 +6,7 @@ import TeamAnalysis from "./pages/TeamAnalysis";
 import Prediction from "./pages/Prediction";
 import LiveMonitor from "./pages/LiveMonitor";
 import Insights from "./pages/Insights";
+import AILab from "./pages/AILab";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/predictions" element={<Prediction />} />
           <Route path="/live" element={<LiveMonitor />} />
           <Route path="/insights" element={<Insights />} />
+          <Route path="/ai-lab" element={<AILab />} />
         </Route>
       </Routes>
     </BrowserRouter>

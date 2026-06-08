@@ -6,6 +6,7 @@ import enum
 
 class MatchStage(str, enum.Enum):
     GROUP = "group"
+    ROUND32 = "round32"
     ROUND16 = "round16"
     QUARTER = "quarter"
     SEMI = "semi"

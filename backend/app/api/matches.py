@@ -27,7 +27,19 @@ async def list_matches(
     if team_id:
         stmt = stmt.where(or_(Match.home_team_id == team_id, Match.away_team_id == team_id))
     result = await db.execute(stmt.options(selectinload(Match.home_team), selectinload(Match.away_team)))
-    return result.scalars().all()
+    matches = result.scalars().all()
+    return [_serialize_match(m) for m in matches]
+
+def _serialize_match(m: Match) -> dict:
+    return {
+        "id": str(m.id), "home_team_id": str(m.home_team_id), "away_team_id": str(m.away_team_id),
+        "match_date": m.match_date.isoformat(), "stage": m.stage.value, "group": m.group,
+        "status": m.status.value, "home_score": m.home_score, "away_score": m.away_score,
+        "venue": m.venue, "venue_meta_json": m.venue_meta_json or {},
+        "home_team": {"name": m.home_team.name, "fifa_code": m.home_team.fifa_code, "flag_url": m.home_team.flag_url} if m.home_team else None,
+        "away_team": {"name": m.away_team.name, "fifa_code": m.away_team.fifa_code, "flag_url": m.away_team.flag_url} if m.away_team else None,
+        "created_at": m.created_at.isoformat(), "updated_at": m.updated_at.isoformat(),
+    }
 
 @router.get("/live", response_model=list[MatchResponse])
 async def live_matches(db: AsyncSession = Depends(get_db)):

@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from uuid import UUID
-from typing import Optional
+from typing import Optional, Any
 from datetime import datetime
 
 class TeamBase(BaseModel):
@@ -10,15 +10,16 @@ class TeamBase(BaseModel):
     fifa_rank: Optional[int] = None
     elo_rating: Optional[float] = None
     flag_url: Optional[str] = None
+    coach_name: Optional[str] = None
 
 class TeamCreate(TeamBase):
     pass
 
 class TeamResponse(TeamBase):
     id: UUID
-    squad_json: dict = {}
-    stats_json: dict = {}
-    availability_json: dict = {}
+    squad_json: Any = {}
+    stats_json: Any = {}
+    availability_json: Any = {}
     created_at: datetime
     updated_at: datetime
 

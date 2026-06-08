@@ -1,15 +1,31 @@
-from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .core.config import settings
 from .core.redis import init_redis
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    await init_redis()
-    yield
+app = FastAPI(title="World Cup Predictor")
 
-app = FastAPI(title="World Cup Predictor", lifespan=lifespan)
+
+@app.on_event("startup")
+async def startup():
+    try:
+        await init_redis()
+    except Exception:
+        pass
+    try:
+        from .services.crawler.scheduler import start_scheduler
+        start_scheduler()
+    except Exception:
+        pass
+
+
+@app.on_event("shutdown")
+async def shutdown():
+    from .services.crawler.scheduler import stop_scheduler
+    try:
+        stop_scheduler()
+    except Exception:
+        pass
 
 app.add_middleware(
     CORSMiddleware,
