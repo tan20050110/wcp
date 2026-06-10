@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import Schedule from "./pages/Schedule";
@@ -8,10 +9,12 @@ import LiveMonitor from "./pages/LiveMonitor";
 import Insights from "./pages/Insights";
 import AILab from "./pages/AILab";
 
-export default function App() {
+function AnimatedRoutes() {
+  const location = useLocation();
+
   return (
-    <BrowserRouter>
-      <Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
         <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/schedule" element={<Schedule />} />
@@ -23,6 +26,14 @@ export default function App() {
           <Route path="/ai-lab" element={<AILab />} />
         </Route>
       </Routes>
+    </AnimatePresence>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AnimatedRoutes />
     </BrowserRouter>
   );
 }
